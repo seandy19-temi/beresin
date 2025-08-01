@@ -6,6 +6,42 @@
   <title>SADRAK – Solusi AI & Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+/* Animasi saat scroll masuk */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efek hover pada box layanan */
+.service-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Tombol CTA efek interaktif */
+.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* Efek popup chatbot muncul lembut */
+#chatModal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+#chatModal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
     :root {
       --teal: #004e56;
       --dark: #1e1e1e;
@@ -108,14 +144,14 @@
     <p>Solusi Anda dari Robot AI Kami</p>
   </header>
 
-  <section>
+  <section class="fade-in">
     <h2>Tentang SADRAK</h2>
     <p>
       SADRAK adalah layanan kreatif digital dan AI yang siap membantu kebutuhan Anda dalam desain, administrasi, pembuatan website, hingga asisten digital interaktif berbasis chatbot. Kami menggabungkan teknologi dan efisiensi manusia untuk hasil terbaik.
     </p>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Layanan Kami</h2>
     <div class="services">
       <div class="service-box">
@@ -137,7 +173,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Portofolio & Demo</h2>
     <ul>
       <li><a href="https://drive.google.com/drive/folders/1_PnwEiw6Qhs0RtZbVKNDvglFEXI6jte_?usp=sharing" target="_blank">GitHub Portofolio</a></li>
@@ -146,7 +182,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Hubungi Kami</h2>
     <p>Ingin pesan layanan atau konsultasi gratis?</p>
     <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
@@ -163,7 +199,7 @@
 </div>
 </section>
   <footer>
-    &copy; 2025 SADRAK Creative • Seandy Christian
+    &copy; 2025 SADRAK Services • ~Seandy Christian~
   </footer>
 <!-- CHATBOT POPUP -->
 <div id="chatModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999;">
@@ -173,12 +209,22 @@
   </div>
 </div>
 <script>
+  // Animasi popup chatbot
   function openChat() {
-    document.getElementById("chatModal").style.display = "block";
+    document.getElementById("chatModal").classList.add("show");
   }
   function closeChat() {
-    document.getElementById("chatModal").style.display = "none";
+    document.getElementById("chatModal").classList.remove("show");
   }
+
+  // Animasi fade-in saat scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  });
+  faders.forEach(el => observer.observe(el));
 </script>
 
 </body>
