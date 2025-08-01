@@ -159,6 +159,23 @@
     transform: none !important;
   }
 }
+/* Untuk menyembunyikan elemen di mobile atau desktop */
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-only {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .mobile-only img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+}
 
   </style>
 </head>
@@ -226,7 +243,10 @@
         <li><a href="SADRAK-Logo.png" target="_blank">Google Drive – Contoh Desain & Dokumen</a></li>
         <li><a href="#" onclick="openChat(); return false;">💬 Coba Chatbot SADRAK</a></li>
       </ul>
-
+<!-- Gambar slide untuk mobile -->
+<div class="mobile-only">
+  <img id="slide-gambar-mobile" src="1.png">
+</div>
       <!-- HUBUNGI KAMI -->
       <div style="height: 30px;"></div>
       <h2>Hubungi Kami</h2>
@@ -235,16 +255,15 @@
       <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
     </div>
 
-   <!-- Kanan: Gambar Slide -->
-<div class="slide-container" style="flex: 1; max-width: 300px; transform: translateX(-60px);">
+   <!-- Kanan: Gambar Slide untuk desktop -->
+<div class="slide-container desktop-only" style="flex: 1; max-width: 300px; transform: translateX(-60px);">
   <img id="slide-gambar" src="1.png" style="width: 150%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
 </div>
-
   </div>
 
   <!-- SOSMED -->
   <div style="text-align:right; margin-top: 1.5rem;">
-    <a href="https://www.instagram.com/sadrakindonesia" target="_blank" style="margin-right:15px;">
+    <a href="https://www.instagram.com/sadrakindonesia" target="_blank" style="margin-right:30px;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px; vertical-align:middle;">
       @sadrakindonesia
     </a>
@@ -257,12 +276,17 @@
 
 
 <script>
-  const gambarList = ["1.png", "2.png", "3.png"]; // Ganti sesuai nama file kamu
+  const gambarList = ["1.png", "2.png", "3.png"]; // Ganti sesuai file
   let index = 0;
+
   function gantiSlide() {
     index = (index + 1) % gambarList.length;
-    document.getElementById("slide-gambar").src = gambarList[index];
+    const desktop = document.getElementById("slide-gambar");
+    const mobile = document.getElementById("slide-gambar-mobile");
+    if (desktop) desktop.src = gambarList[index];
+    if (mobile) mobile.src = gambarList[index];
   }
+
   setInterval(gantiSlide, 5000); // Ganti gambar setiap 5 detik
 </script>
 
