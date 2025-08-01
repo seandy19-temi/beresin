@@ -176,6 +176,27 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 }
+.sosmed-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.sosmed-item a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sosmed-wrapper {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8rem;
+  }
+}
 
   </style>
 </head>
@@ -262,18 +283,22 @@
   </div>
 
   <!-- SOSMED -->
-  <div style="text-align:right; margin-top: 1.5rem;">
-    <a href="https://www.instagram.com/sadrakindonesia" target="_blank" style="margin-right:30px;">
+  <div class="sosmed-wrapper">
+  <div class="sosmed-item">
+    <a href="https://www.instagram.com/sadrakindonesia" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px; vertical-align:middle;">
       @sadrakindonesia
     </a>
+  </div>
+  <div class="sosmed-item">
     <a href="https://beacons.ai/sadrak.id" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/9068/9068756.png" alt="Beacons" style="height:24px; vertical-align:middle;">
       beacons.ai/sadrak.id
     </a>
   </div>
-</section>
+</div>
 
+</section>
 
 <script>
   const gambarList = ["1.png", "2.png", "3.png"]; // Ganti sesuai file
