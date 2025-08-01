@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SADRAK – Solusi AI & Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<!-- GLightbox CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <style>
 
 /* Animasi saat scroll masuk */
@@ -278,15 +280,12 @@
 
       <!-- Thumbnail Gambar -->
 
-<li><a href="#" onclick="openLightbox(0); return false;">GitHub Portofolio</a></li>
+<li>
+  <a href="1.png" class="glightbox" data-gallery="portfolio">GitHub Portofolio</a>
+  <a href="2.png" class="glightbox" data-gallery="portfolio" style="display:none;"></a>
+  <a href="3.png" class="glightbox" data-gallery="portfolio" style="display:none;"></a>
+</li>
 
-<!-- LIGHTBOX POPUP -->
-<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:120%; height:120%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
-  <span onclick="closeLightbox()" style="position:absolute; top:50px; right:80px; color:white; font-size:80px; cursor:pointer;">&times;</span>
-  <img id="lightbox-img" src="" style="max-width:110%; max-height:90%; border-radius:10px; margin-bottom:0.5rem;">
-  <div style="position:absolute; top:50%; left:30px; font-size:40px; color:white; cursor:pointer;" onclick="prevSlide()">&#10094;</div>
-  <div style="position:absolute; top:50%; right:30px; font-size:40px; color:white; cursor:pointer;" onclick="nextSlide()">&#10095;</div>
-</div>
         <li><a href="https://drive.google.com/drive/folders/1_PnwEiw6Qhs0RtZbVKNDvglFEXI6jte_?usp=sharing" target="_blank">Google Drive – Contoh Desain & Dokumen</a></li>
         <li><a href="#" onclick="openChat(); return false;">💬 Coba Chatbot SADRAK</a></li>
       </ul>
@@ -339,31 +338,6 @@
   }
 
   setInterval(gantiSlide, 5000); // Ganti gambar setiap 5 detik
-
-</script>
- <script>
-  const galleryImages = ["1.png", "2.png", "3.png"]; // Ganti dengan nama file asli
-  let currentIndex = 0;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-    document.getElementById("lightbox").style.display = "flex";
-  }
-
-  function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-  }
 </script>
 
   <footer>
@@ -394,6 +368,12 @@
   });
   faders.forEach(el => observer.observe(el));
 </script>
-
+<!-- GLightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
 </body>
 </html>
