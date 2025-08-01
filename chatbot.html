@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Chatbot Sederhana (Offline)</title>
+  <title>SADRAKBOT</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -112,7 +112,7 @@
 <body>
 
 <div class="chat-container">
-  <div class="chat-header">Chatbot Sederhana (Offline)</div>
+  <div class="chat-header">SADRAKbot siap membantu</div>
   <div id="chatbox"></div>
   <div class="chat-input">
     <input type="text" id="userInput" placeholder="Ketik pesan...">
@@ -155,6 +155,10 @@
 
     if (userMessage.includes("halo") || userMessage.includes("hai")) {
       return "Hai juga! Selamat datang.";
+    } else if (userMessage.includes("berapa harga") || userMessage.includes("harga bikin logo")) {
+      return "Harga bikin logo cuman 50 ribu boskuu, Murah kan??";
+    } else if (userMessage.includes("harga logo") || userMessage.includes("jasa bikin logo")) {
+      return "Cuman 50 ribu boskuu, Murah kan??";
     } else if (userMessage.includes("cs") || userMessage.includes("sambungkan")) {
       return "__whatsapp_request__";
     } else if (userMessage.includes("kucing")) {
