@@ -6,6 +6,7 @@
   <title>SADRAK – Solusi AI & Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+
 /* Animasi saat scroll masuk */
 .fade-in {
   opacity: 0;
@@ -134,22 +135,40 @@
     @media (max-width: 600px) {
       header h1 { font-size: 1.5rem; }
     }
+
+    nav {
+     display: flex;
+     justify-content: center;
+     gap: 30px;
+    }
+    nav a {
+     text-decoration: none;
+     font-weight: bold;
+     color: #c3dedd;
+     }
+
   </style>
 </head>
 <body>
 
   <header>
     <img src="SADRAK-Logo.png" alt="Logo SADRAK">
-    <h1>SADRAK</h1>
+    <h1><span style="letter-spacing: 5px;">SADRAK</span></h1>
     <p>Solusi Anda dari Robot AI Kami</p>
 
-        <h3>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#contact">Contact</a>
-        </nav></h3>
-    
+     <nav style="text-align:center; margin-top:30px; position:relative; top:20px;">
+      <span style="margin-right:30px; color:#d8edec;"> 
+       <a href="1.png" style="font-size:30px;">About</a> 
+      </span>
+      <span style="margin-right:30px; position:relative; top:5px; color:#d8edec;">
+       <a href="2.png" style="font-size:30px;">Features</a>
+      </span>
+      <span>
+       <a href="#contact" style="font-size:30px; color:#d8edec;">Contact</a>
+      </span>
+     </nav>
+
+ 
   </header>
 
   <section class="fade-in">
@@ -181,31 +200,59 @@
     </div>
   </section>
 
-  <section class="fade-in">
-    <h2>Portofolio & Demo</h2>
-    <ul>
-      <li><a href="https://drive.google.com/drive/folders/1_PnwEiw6Qhs0RtZbVKNDvglFEXI6jte_?usp=sharing" target="_blank">GitHub Portofolio</a></li>
-      <li><a href="SADRAK-Logo.png" target="_blank">Google Drive – Contoh Desain & Dokumen</a></li>
-      <li><a href="#" onclick="openChat(); return false;">💬 Coba Chatbot SADRAK</a></li>
-    </ul>
-  </section>
+<!-- HUBUNGI KAMI & SLIDESHOW -->
+<section class="fade-in">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;">
 
-  <section class="fade-in">
-    <h2>Hubungi Kami</h2>
-    <p>Ingin pesan layanan atau konsultasi gratis?</p>
-    <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
-    <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
-  <div style="text-align:right; margin-top:1rem;">
-  <a href="https://www.instagram.com/sadrakindonesia" target="_blank" style="margin-right:15px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px; vertical-align:middle;">
-    @sadrakindonesia
-  </a>
-  <a href="https://beacons.ai/sadrak.id" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068756.png" alt="Beacons" style="height:24px; vertical-align:middle;">
-    beacons.ai/sadrak.id
-  </a>
+    <!-- Kolom Kiri: Portofolio + Kontak -->
+    <div style="flex: 1; min-width: 250px;">
+      <!-- PORTOFOLIO -->
+      <h2>Portofolio & Demo</h2>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1_PnwEiw6Qhs0RtZbVKNDvglFEXI6jte_?usp=sharing" target="_blank">GitHub Portofolio</a></li>
+        <li><a href="SADRAK-Logo.png" target="_blank">Google Drive – Contoh Desain & Dokumen</a></li>
+        <li><a href="#" onclick="openChat(); return false;">💬 Coba Chatbot SADRAK</a></li>
+      </ul>
+
+      <!-- HUBUNGI KAMI -->
+      <div style="height: 30px;"></div>
+      <h2>Hubungi Kami</h2>
+      <p>Ingin pesan layanan atau konsultasi gratis?</p>
+      <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
+      <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
+    </div>
+
+    <!-- Kanan: Gambar Slide -->
+<div style="flex: 1; max-width: 300px; transform: translateX(-100px);">
+  <img id="slide-gambar" src="1.png" style="width: 150%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
 </div>
+
+  </div>
+
+  <!-- SOSMED -->
+  <div style="text-align:right; margin-top: 1.5rem;">
+    <a href="https://www.instagram.com/sadrakindonesia" target="_blank" style="margin-right:15px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px; vertical-align:middle;">
+      @sadrakindonesia
+    </a>
+    <a href="https://beacons.ai/sadrak.id" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/9068/9068756.png" alt="Beacons" style="height:24px; vertical-align:middle;">
+      beacons.ai/sadrak.id
+    </a>
+  </div>
 </section>
+
+
+<script>
+  const gambarList = ["1.png", "2.png", "3.png"]; // Ganti sesuai nama file kamu
+  let index = 0;
+  function gantiSlide() {
+    index = (index + 1) % gambarList.length;
+    document.getElementById("slide-gambar").src = gambarList[index];
+  }
+  setInterval(gantiSlide, 5000); // Ganti gambar setiap 5 detik
+</script>
+
   <footer>
     &copy; 2025 SADRAK Services • ~Seandy Christian~
   </footer>
