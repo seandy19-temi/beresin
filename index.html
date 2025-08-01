@@ -147,6 +147,19 @@
      color: #c3dedd;
      }
 
+@media (max-width: 768px) {
+  #slide-gambar {
+    width: 100% !important;
+    transform: none !important;
+  }
+
+  .slide-container {
+    max-width: 100% !important;
+    margin: 1rem auto;
+    transform: none !important;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -222,8 +235,8 @@
       <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
     </div>
 
-    <!-- Kanan: Gambar Slide -->
-<div style="flex: 1; max-width: 300px; transform: translateX(-100px);">
+   <!-- Kanan: Gambar Slide -->
+<div class="slide-container" style="flex: 1; max-width: 300px; transform: translateX(-60px);">
   <img id="slide-gambar" src="1.png" style="width: 150%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
 </div>
 
