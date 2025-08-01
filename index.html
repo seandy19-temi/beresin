@@ -197,7 +197,29 @@
     gap: 0.8rem;
   }
 }
+.nav-menu {
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
+.nav-menu a {
+  font-size: 30px;
+  font-weight: bold;
+  color: #d8edec;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .nav-menu a {
+    font-size: 20px; /* otomatis lebih kecil di HP */
+  }
+}
   </style>
 </head>
 <body>
@@ -207,18 +229,11 @@
     <h1><span style="letter-spacing: 5px;">SADRAK</span></h1>
     <p>Solusi Anda dari Robot AI Kami</p>
 
-     <nav style="text-align:center; margin-top:30px; position:relative; top:20px;">
-      <span style="margin-right:30px; color:#d8edec;"> 
-       <a href="1.png" style="font-size:30px;">About</a> 
-      </span>
-      <span style="margin-right:30px; position:relative; top:5px; color:#d8edec;">
-       <a href="2.png" style="font-size:30px;">Features</a>
-      </span>
-      <span>
-       <a href="#contact" style="font-size:30px; color:#d8edec;">Contact</a>
-      </span>
-     </nav>
-
+     <nav class="nav-menu">
+  <span><a href="1.png">About</a></span>
+  <span><a href="2.png">Features</a></span>
+  <span><a href="#contact">Contact</a></span>
+</nav>
  
   </header>
 
