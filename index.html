@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -99,45 +98,6 @@
     @media (max-width: 600px) {
       header h1 { font-size: 1.5rem; }
     }
-
-    /* Modal chatbot */
-    #chatModal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: 1000;
-    }
-
-    #chatModal .chatbox-wrapper {
-      width: 90%;
-      max-width: 400px;
-      height: 600px;
-      background: white;
-      margin: 5% auto;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    #chatModal .chatbox-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    #chatModal .chatbox-wrapper button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -151,7 +111,7 @@
   <section>
     <h2>Tentang SADRAK</h2>
     <p>
-      SADRAK adalah layanan kreatif digital dan AI yang siap membantu kebutuhan Anda dalam desain, administrasi, pembuatan website, hingga asisten digital interaktif berbasis chatbot.
+      SADRAK adalah layanan kreatif digital dan AI yang siap membantu kebutuhan Anda dalam desain, administrasi, pembuatan website, hingga asisten digital interaktif berbasis chatbot. Kami menggabungkan teknologi dan efisiensi manusia untuk hasil terbaik.
     </p>
   </section>
 
@@ -182,7 +142,7 @@
     <ul>
       <li><a href="https://drive.google.com/drive/folders/1_PnwEiw6Qhs0RtZbVKNDvglFEXI6jte_?usp=sharing" target="_blank">GitHub Portofolio</a></li>
       <li><a href="SADRAK-Logo.png" target="_blank">Google Drive – Contoh Desain & Dokumen</a></li>
-      <li><a href="chatbot.html" onclick="openChat()">💬 Coba Chatbot SADRAK</a></li>
+      <li><a href="chatbot.html" target="_blank">💬 Coba Chatbot SADRAK</a></li>
     </ul>
   </section>
 
@@ -190,29 +150,12 @@
     <h2>Hubungi Kami</h2>
     <p>Ingin pesan layanan atau konsultasi gratis?</p>
     <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
-    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeoIo_boZ5BjD7KF03bH3bUShEU7GCAY7aZ2iMVtrsbtAiVCQ/viewform?usp=sharing&ouid=102538613185140762395" target="_blank">📝 Isi Form Order</a>
+    <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
   </section>
 
   <footer>
     &copy; 2025 SADRAK Creative • Seandy Christian
   </footer>
-
-  <!-- Modal Chatbot -->
-  <div id="chatModal">
-    <div class="chatbox-wrapper">
-      <iframe src="https://seandy19-temi.github.io/chatbot/"></iframe>
-      <button onclick="closeChat()">Tutup</button>
-    </div>
-  </div>
-
-  <script>
-    function openChat() {
-      document.getElementById("chatModal").style.display = "block";
-    }
-    function closeChat() {
-      document.getElementById("chatModal").style.display = "none";
-    }
-  </script>
 
 </body>
 </html>
