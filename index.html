@@ -142,7 +142,7 @@
     <ul>
       <li><a href="https://drive.google.com/drive/folders/1_PnwEiw6Qhs0RtZbVKNDvglFEXI6jte_?usp=sharing" target="_blank">GitHub Portofolio</a></li>
       <li><a href="SADRAK-Logo.png" target="_blank">Google Drive – Contoh Desain & Dokumen</a></li>
-      <li><a href="chatbot.html" target="_blank">💬 Coba Chatbot SADRAK</a></li>
+      <li><a href="#" onclick="openChat(); return false;">💬 Coba Chatbot SADRAK</a></li>
     </ul>
   </section>
 
@@ -152,10 +152,24 @@
     <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
     <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
   </section>
-
   <footer>
     &copy; 2025 SADRAK Creative • Seandy Christian
   </footer>
+<!-- CHATBOT POPUP -->
+<div id="chatModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999;">
+  <div style="width:90%; max-width:400px; height:600px; margin:5% auto; border-radius:10px; background:white; overflow:hidden; position:relative;">
+    <button onclick="closeChat()" style="position:absolute; top:10px; right:10px; background:red; color:white; border:none; padding:5px 10px; border-radius:5px; z-index:1001;">Tutup</button>
+    <iframe src="chatbot.html" style="width:100%; height:100%; border:none;"></iframe>
+  </div>
+</div>
+<script>
+  function openChat() {
+    document.getElementById("chatModal").style.display = "block";
+  }
+  function closeChat() {
+    document.getElementById("chatModal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
