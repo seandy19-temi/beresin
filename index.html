@@ -222,6 +222,44 @@
     font-size: 20px; /* otomatis lebih kecil di HP */
   }
 }
+.mobile-only img {
+  touch-action: pan-y;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+/* Tambahan efek slide kiri */
+.slide-container img.slide-out-left {
+  animation: slideOutLeft 0.4s ease forwards;
+}
+.slide-container img.slide-in-left {
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+@keyframes slideOutLeft {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-100%); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+/* Indikator bulat di bawah slide */
+.slide-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slide-dot.active {
+  background-color: var(--teal);
+}
+
   </style>
 </head>
 <body>
@@ -299,15 +337,7 @@
       <p>Ingin pesan layanan atau konsultasi gratis?</p>
       <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
       <a class="cta" href="https://docs.google.com/forms/d/1tToNWg3SyxH-a54iL6gtJ5n5RoTSgBfBbjMJkMLE96c/viewform?edit_requested=true" target="_blank">📝 Isi Form Order</a>
-    </div>
-
-   <!-- Kanan: Gambar Slide untuk desktop -->
-<div class="slide-container desktop-only" style="flex: 1; max-width: 300px; transform: translateX(-60px);">
-  <img id="slide-gambar" src="1.png" style="width: 150%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-</div>
-  </div>
-
-  <!-- SOSMED -->
+<!-- SOSMED -->
   <div class="sosmed-wrapper">
   <div class="sosmed-item">
     <a href="https://www.instagram.com/sadrakindonesia" target="_blank">
@@ -321,23 +351,95 @@
       beacons.ai/sadrak.id
     </a>
   </div>
+    </div>
+     </div>
+
+  <!-- Kanan: Gambar Slide untuk desktop -->
+<div class="slide-container desktop-only" style="flex: 1; max-width: 400px; position: relative; margin-left: 10px;">
+  <img id="slide-gambar" src="1.png" style="width: 110%; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: opacity 0.5s ease;">
+  
+   <div id="slide-dots" style="text-align:center; margin-top:10px;"></div>
+</div>
+
 </div>
 
 </section>
 
 <script>
-  const gambarList = ["1.png", "2.png", "3.png"]; // Ganti sesuai file
+document.addEventListener("DOMContentLoaded", function () {
+  const gambarList = ["1.png", "2.png", "3.png"];
   let index = 0;
 
-  function gantiSlide() {
-    index = (index + 1) % gambarList.length;
-    const desktop = document.getElementById("slide-gambar");
-    const mobile = document.getElementById("slide-gambar-mobile");
-    if (desktop) desktop.src = gambarList[index];
-    if (mobile) mobile.src = gambarList[index];
+  const slideMobile = document.getElementById("slide-gambar-mobile");
+  const slideDesktop = document.getElementById("slide-gambar");
+  const slideDots = document.getElementById("slide-dots");
+
+  // Buat dot indikator
+  gambarList.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = "slide-dot";
+    dot.addEventListener("click", () => showSlide(i));
+    slideDots.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".slide-dot");
+
+  function showSlide(i) {
+    index = (i + gambarList.length) % gambarList.length;
+
+    // Animasi desktop
+    if (slideDesktop) {
+      slideDesktop.classList.remove("slide-in-left", "slide-out-left");
+      slideDesktop.classList.add("slide-out-left");
+      setTimeout(() => {
+        slideDesktop.src = gambarList[index];
+        slideDesktop.classList.remove("slide-out-left");
+        slideDesktop.classList.add("slide-in-left");
+      }, 300);
+    }
+
+    if (slideMobile) slideMobile.src = gambarList[index];
+
+    // Update dot aktif
+    dots.forEach((dot, iDot) => {
+      dot.classList.toggle("active", iDot === index);
+    });
   }
 
-  setInterval(gantiSlide, 5000); // Ganti gambar setiap 5 detik
+  // Slide otomatis
+  setInterval(() => showSlide(index + 1), 5000);
+
+  // Swipe & drag (mobile + desktop)
+  let startX = 0;
+  let isDragging = false;
+
+  function handleStart(e) {
+    isDragging = true;
+    startX = e.touches ? e.touches[0].clientX : e.clientX;
+  }
+
+  function handleEnd(e) {
+    if (!isDragging) return;
+    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const deltaX = endX - startX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) showSlide(index - 1);
+      else showSlide(index + 1);
+    }
+    isDragging = false;
+  }
+
+  const swipeArea = slideDesktop || slideMobile;
+  if (swipeArea) {
+    swipeArea.addEventListener("touchstart", handleStart);
+    swipeArea.addEventListener("touchend", handleEnd);
+    swipeArea.addEventListener("mousedown", handleStart);
+    swipeArea.addEventListener("mouseup", handleEnd);
+  }
+
+  // Tampilkan slide awal
+  showSlide(0);
+});
 </script>
 
   <footer>
