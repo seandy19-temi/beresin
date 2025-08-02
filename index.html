@@ -411,31 +411,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Swipe & drag (mobile + desktop)
   let startX = 0;
-  let isDragging = false;
+let isDragging = false;
 
-  function handleStart(e) {
-    isDragging = true;
-    startX = e.touches ? e.touches[0].clientX : e.clientX;
+function handleStart(e) {
+  isDragging = true;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+}
+
+function handleMove(e) {
+  if (!isDragging) return;
+}
+
+function handleEnd(e) {
+  if (!isDragging) return;
+  const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  const deltaX = endX - startX;
+
+  if (Math.abs(deltaX) > 50) {
+    if (deltaX > 0) showSlide(index - 1);
+    else showSlide(index + 1);
   }
 
-  function handleEnd(e) {
-    if (!isDragging) return;
-    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-    const deltaX = endX - startX;
-    if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0) showSlide(index - 1);
-      else showSlide(index + 1);
-    }
-    isDragging = false;
-  }
+  isDragging = false;
+}
 
-  const swipeArea = slideDesktop || slideMobile;
-  if (swipeArea) {
-    swipeArea.addEventListener("touchstart", handleStart);
-    swipeArea.addEventListener("touchend", handleEnd);
-    swipeArea.addEventListener("mousedown", handleStart);
-    swipeArea.addEventListener("mouseup", handleEnd);
-  }
+ if (swipeArea) {
+  // Mobile
+  swipeArea.addEventListener("touchstart", handleStart);
+  swipeArea.addEventListener("touchmove", handleMove); // optional
+  swipeArea.addEventListener("touchend", handleEnd);
+
+  // Desktop
+  swipeArea.addEventListener("mousedown", handleStart);
+  swipeArea.addEventListener("mousemove", handleMove); // optional
+  swipeArea.addEventListener("mouseup", handleEnd);
+}
 
   // Tampilkan slide awal
   showSlide(0);
