@@ -260,6 +260,24 @@
   background-color: var(--teal);
 }
 
+/* Animasi transisi untuk mobile juga */
+#slide-gambar-mobile.slide-out-left {
+  animation: slideOutLeft 0.4s ease forwards;
+}
+#slide-gambar-mobile.slide-in-left {
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+@keyframes slideOutLeft {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-100%); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
   </style>
 </head>
 <body>
@@ -398,8 +416,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (slideMobile) {
-      slideMobile.src = gambarList[index];
-    }
+  slideMobile.classList.remove("slide-in-left", "slide-out-left");
+  slideMobile.classList.add("slide-out-left");
+  setTimeout(() => {
+    slideMobile.src = gambarList[index];
+    slideMobile.classList.remove("slide-out-left");
+    slideMobile.classList.add("slide-in-left");
+  }, 300);
+}
 
     dots.forEach((dot, iDot) => {
       dot.classList.toggle("active", iDot === index);
