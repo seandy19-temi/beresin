@@ -374,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const slideDesktop = document.getElementById("slide-gambar");
   const slideDots = document.getElementById("slide-dots");
 
-  // Buat dot indikator
+  // Dot indikator
   gambarList.forEach((_, i) => {
     const dot = document.createElement("span");
     dot.className = "slide-dot";
@@ -387,7 +387,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function showSlide(i) {
     index = (i + gambarList.length) % gambarList.length;
 
-    // Animasi desktop
     if (slideDesktop) {
       slideDesktop.classList.remove("slide-in-left", "slide-out-left");
       slideDesktop.classList.add("slide-out-left");
@@ -398,59 +397,56 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 300);
     }
 
-    if (slideMobile) slideMobile.src = gambarList[index];
+    if (slideMobile) {
+      slideMobile.src = gambarList[index];
+    }
 
-    // Update dot aktif
     dots.forEach((dot, iDot) => {
       dot.classList.toggle("active", iDot === index);
     });
   }
 
-  // Slide otomatis
   setInterval(() => showSlide(index + 1), 5000);
 
-  // Swipe & drag (mobile + desktop)
   let startX = 0;
-let isDragging = false;
+  let isDragging = false;
 
-function handleStart(e) {
-  isDragging = true;
-  startX = e.touches ? e.touches[0].clientX : e.clientX;
-}
-
-function handleMove(e) {
-  if (!isDragging) return;
-}
-
-function handleEnd(e) {
-  if (!isDragging) return;
-  const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-  const deltaX = endX - startX;
-
-  if (Math.abs(deltaX) > 50) {
-    if (deltaX > 0) showSlide(index - 1);
-    else showSlide(index + 1);
+  function handleStart(e) {
+    isDragging = true;
+    startX = e.touches ? e.touches[0].clientX : e.clientX;
   }
 
-  isDragging = false;
-}
+  function handleMove(e) {
+    if (!isDragging) return;
+  }
 
- if (swipeArea) {
-  // Mobile
-  swipeArea.addEventListener("touchstart", handleStart);
-  swipeArea.addEventListener("touchmove", handleMove); // optional
-  swipeArea.addEventListener("touchend", handleEnd);
+  function handleEnd(e) {
+    if (!isDragging) return;
+    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const deltaX = endX - startX;
 
-  // Desktop
-  swipeArea.addEventListener("mousedown", handleStart);
-  swipeArea.addEventListener("mousemove", handleMove); // optional
-  swipeArea.addEventListener("mouseup", handleEnd);
-}
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) showSlide(index - 1);
+      else showSlide(index + 1);
+    }
 
-  // Tampilkan slide awal
+    isDragging = false;
+  }
+
+  // Swipe di desktop & mobile
+  const swipeTargets = [slideDesktop, slideMobile];
+  swipeTargets.forEach(target => {
+    if (!target) return;
+    target.addEventListener("touchstart", handleStart);
+    target.addEventListener("touchend", handleEnd);
+    target.addEventListener("mousedown", handleStart);
+    target.addEventListener("mouseup", handleEnd);
+  });
+
   showSlide(0);
 });
 </script>
+
 
   <footer>
     &copy; 2025 SADRAK Services • ~Seandy Christian~
