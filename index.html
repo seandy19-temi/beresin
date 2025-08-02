@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const slideDesktop = document.getElementById("slide-gambar");
   const slideDots = document.getElementById("slide-dots");
 
-  // Dot indikator
+  // Buat indikator
   gambarList.forEach((_, i) => {
     const dot = document.createElement("span");
     dot.className = "slide-dot";
@@ -402,29 +402,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const dots = document.querySelectorAll(".slide-dot");
 
+  function setImageWithTransition(img, src) {
+    img.classList.remove("slide-in-left", "slide-out-left");
+    img.classList.add("slide-out-left");
+    setTimeout(() => {
+      img.src = src;
+      img.classList.remove("slide-out-left");
+      img.classList.add("slide-in-left");
+    }, 300);
+  }
+
   function showSlide(i) {
     index = (i + gambarList.length) % gambarList.length;
-
-    if (slideDesktop) {
-      slideDesktop.classList.remove("slide-in-left", "slide-out-left");
-      slideDesktop.classList.add("slide-out-left");
-      setTimeout(() => {
-        slideDesktop.src = gambarList[index];
-        slideDesktop.classList.remove("slide-out-left");
-        slideDesktop.classList.add("slide-in-left");
-      }, 300);
-    }
-
-    if (slideMobile) {
-  slideMobile.classList.remove("slide-in-left", "slide-out-left");
-  slideMobile.classList.add("slide-out-left");
-  setTimeout(() => {
-    slideMobile.src = gambarList[index];
-    slideMobile.classList.remove("slide-out-left");
-    slideMobile.classList.add("slide-in-left");
-  }, 300);
-}
-
+    const src = gambarList[index];
+    if (slideDesktop) setImageWithTransition(slideDesktop, src);
+    if (slideMobile) setImageWithTransition(slideMobile, src);
     dots.forEach((dot, iDot) => {
       dot.classList.toggle("active", iDot === index);
     });
@@ -432,6 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(() => showSlide(index + 1), 5000);
 
+  // Swipe handler
   let startX = 0;
   let isDragging = false;
 
@@ -440,24 +433,16 @@ document.addEventListener("DOMContentLoaded", function () {
     startX = e.touches ? e.touches[0].clientX : e.clientX;
   }
 
-  function handleMove(e) {
-    if (!isDragging) return;
-  }
-
   function handleEnd(e) {
     if (!isDragging) return;
     const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
     const deltaX = endX - startX;
-
     if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0) showSlide(index - 1);
-      else showSlide(index + 1);
+      showSlide(index + (deltaX < 0 ? 1 : -1));
     }
-
     isDragging = false;
   }
 
-  // Swipe di desktop & mobile
   const swipeTargets = [slideDesktop, slideMobile];
   swipeTargets.forEach(target => {
     if (!target) return;
@@ -470,6 +455,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showSlide(0);
 });
 </script>
+
 
 
   <footer>
