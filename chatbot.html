@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>SADRAKBOT</title>
+  <title>BERESINbot</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -18,7 +18,7 @@
     .chat-container {
       background: #fff;
       width: 400px;
-      max-width: 90%;
+      max-width: 95%;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       display: flex;
@@ -112,7 +112,7 @@
 <body>
 
 <div class="chat-container">
-  <div class="chat-header">SADRAKbot siap membantu</div>
+  <div class="chat-header">BERESINbot siap membantu</div>
   <div id="chatbox"></div>
   <div class="chat-input">
     <input type="text" id="userInput" placeholder="Ketik pesan...">
@@ -120,28 +120,28 @@
   </div>
 </div>
 
+<!-- Suara balasan bot -->
+<audio id="botSound" src="chatbot-sound.mp3" preload="auto"></audio>
+
 <script>
   const chatbox = document.getElementById('chatbox');
   const input = document.getElementById('userInput');
+  const botSound = document.getElementById('botSound');
+  let context = null;
 
   function appendMessage(role, message) {
     const msgDiv = document.createElement('div');
     msgDiv.className = 'message ' + (role === 'Kamu' ? 'kamu' : 'bot');
 
-    if (message.match(/\.(jpeg|jpg|png|gif|webp)$/i)) {
+    if (message.match(/\.(jpeg|jpg|png|gif|webp|png)$/i)) {
       msgDiv.innerHTML = `<strong>${role}:</strong><br><img src="${message}" alt="gambar">`;
-
     } else if (message.match(/\.(mp4|webm)$/i)) {
       msgDiv.innerHTML = `<strong>${role}:</strong><br><video src="${message}" controls></video>`;
-
     } else if (message.includes("https://wa.me/")) {
       const link = message.match(/https:\/\/wa\.me\/[0-9?=A-Za-z%]+/g)?.[0];
-      msgDiv.innerHTML = `<strong>${role}:</strong><br>
-        <a class="whatsapp-button" href="${link}" target="_blank">💬 Hubungi via WhatsApp</a>`;
-
+      msgDiv.innerHTML = `<strong>${role}:</strong><br><a class="whatsapp-button" href="${link}" target="_blank">💬 Hubungi via WhatsApp</a>`;
     } else if (message.startsWith("http")) {
       msgDiv.innerHTML = `<strong>${role}:</strong> <a href="${message}" target="_blank">${message}</a>`;
-
     } else {
       msgDiv.innerHTML = `<strong>${role}:</strong> ${message}`;
     }
@@ -153,23 +153,50 @@
   function getBotReply(userMessage) {
     userMessage = userMessage.toLowerCase();
 
-    if (userMessage.includes("halo") || userMessage.includes("hai")) {
+    if (userMessage.includes("halo") || userMessage.includes("oy") || userMessage.includes("hai")) {
       return "Hai juga! Selamat datang.";
-    } else if (userMessage.includes("berapa harga") || userMessage.includes("harga bikin logo")) {
-      return "Harga bikin logo cuman 50 ribu boskuu, Murah kan??";
-    } else if (userMessage.includes("harga logo") || userMessage.includes("jasa bikin logo")) {
-      return "Cuman 50 ribu boskuu, Murah kan??";
-    } else if (userMessage.includes("cs") || userMessage.includes("sambungkan")) {
-      return "__whatsapp_request__";
-    } else if (userMessage.includes("kucing")) {
-      return "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg";
-    } else if (userMessage.includes("anjing")) {
-      return "https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg";
-    } else if (userMessage.includes("video")) {
-      return "https://www.w3schools.com/html/mov_bbb.mp4";
-    } else {
-      return "Maaf, saya tidak mengerti.";
     }
+    
+    if (userMessage.includes("babi") || userMessage.includes("bangsat") || userMessage.includes("tai")) {
+      return "Mohon jangan berkata kasar ya!!!";
+    }
+
+    if (userMessage.includes("harga logo") || userMessage.includes("logo")) {
+      context = "logo";
+      return "Harga mulai Rp75 ribu kak. Mau lihat contohnya?";
+    }
+
+    if (userMessage.includes("harga artikel") || userMessage.includes("artikel")) {
+      context = "artikel";
+      return "Harga mulai Rp50 ribu kak. Mau lihat contohnya?";
+    }
+    if (userMessage.includes("harga video") || userMessage.includes("video")) {
+      context = "video";
+      return "Harga mulai Rp80 ribu kak. Mau lihat contohnya?";
+    }
+
+    if (userMessage.includes("mau")) {
+      if (context === "logo") {
+        context = null;
+        return "SADRAK-Logo.png";
+      } else if (context === "artikel") {
+        context = null;
+        return "1.png";
+      } else if (context === "video") {
+        context = null;
+        return "https://www.w3schools.com/html/mov_bbb.mp4";
+      }
+    }
+
+    if (userMessage.includes("promo")) {
+      return "Kita ada promo untuk pelanggan baru nih, diskon sampai 50% loh!! claim diskon di landing page kami ya!";
+    }
+
+    if (userMessage.includes("cs") || userMessage.includes("sambungkan")) {
+      return "__whatsapp_request__";
+    }
+
+    return "Maaf, saya tidak mengerti.";
   }
 
   function sendMessage() {
@@ -183,8 +210,7 @@
       const reply = getBotReply(message);
 
       if (reply === "__whatsapp_request__") {
-        appendMessage("Bot", "Baik, tunggu sebentar boss...");
-
+        appendMessage("Bot", "Baik, tunggu sebentar bossku...");
         const typingDiv = document.createElement('div');
         typingDiv.className = 'message bot typing';
         typingDiv.textContent = "Bot sedang mengetik...";
@@ -199,6 +225,13 @@
 
       } else {
         appendMessage("Bot", reply);
+
+        // Pastikan audio bisa dimainkan setelah interaksi
+        botSound.muted = false;
+        botSound.volume = 1;
+        botSound.play().catch(e => {
+          console.warn("🔇 Autoplay gagal:", e);
+        });
       }
     }, 500);
   }
