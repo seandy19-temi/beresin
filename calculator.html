@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BERESIN – Solusi AI & Digital</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <style>
+    :root {
+      --teal: #004e56;
+      --dark: #1e1e1e;
+      --light: #f5f5f5;
+      --white: #ffffff;
+      --accent: #25D366;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--dark), var(--teal));
+      color: var(--white);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 5px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #c3dedd;
+      font-size: 30px;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 20px;
+      }
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2, h4 {
+      color: var(--teal);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    a {
+      color: var(--teal);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      background: #e8e8e8;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Logo.png" alt="Logo BERESIN">
+    <h1>BERESIN</h1>
+    <p>Apapun tugasnya, kami yang BERESIN.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="features.html">Features</a>
+    </nav>
+  </header>
+<section id="kalkulator" style="background-color: #f9f9f9; padding: 2rem 1rem;" data-aos="fade-up">
+  <h2 style="color: #004e56;">🧮 Kalkulator Harga Cepat</h2>
+  <p>Hitung estimasi biaya jasa BERESIN sesuai kebutuhanmu:</p>
+
+  <div style="max-width: 500px; margin: 2rem auto; background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+    <label for="jenis" style="font-weight: bold;">Pilih Jenis Layanan:</label>
+    <select id="jenis" style="width: 100%; padding: 0.5rem; margin: 0.5rem 0 1rem;">
+      <option value="artikel">✍️ Artikel (Rp50.000/halaman)</option>
+      <option value="desain">🎨 Desain (Rp75.000/desain)</option>
+      <option value="video">🎬 Video (Rp100.000/menit)</option>
+      <option value="excel">📊 Excel (Rp80.000/template)</option>
+    </select>
+
+    <label for="jumlah" style="font-weight: bold;">Jumlah (halaman / desain / menit):</label>
+    <input type="number" id="jumlah" min="1" value="1" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+
+    <label style="font-weight: bold;">Jenis Pengerjaan:</label>
+    <div style="margin: 0.5rem 0 1rem;">
+      <label><input type="radio" name="waktu" value="normal" checked> Normal (1–2 hari)</label><br>
+      <label><input type="radio" name="waktu" value="kilat"> Kilat (dalam 24 jam)</label>
+    </div>
+
+    <div id="hasil" style="font-size: 1.2rem; font-weight: bold; color: #004e56;">Estimasi: Rp50.000</div>
+
+    <a id="whatsappLink" href="#" onclick="kirimKeWhatsApp()" target="_blank" class="cta">Chat Sekarang via WhatsApp</a>
+
+  </div>
+</section>
+<script>
+  const hargaDasar = {
+    artikel: 50000,
+    desain: 75000,
+    video: 100000,
+    excel: 80000
+  };
+
+  const hargaKilat = {
+    artikel: 20000,
+    desain: 25000,
+    video: 30000,
+    excel: 20000
+  };
+
+  function hitungHarga() {
+    const jenis = document.getElementById('jenis').value;
+    const jumlah = parseInt(document.getElementById('jumlah').value) || 0;
+    const waktu = document.querySelector('input[name="waktu"]:checked').value;
+
+    let total = hargaDasar[jenis] * jumlah;
+    if (waktu === 'kilat') {
+      total += hargaKilat[jenis] * jumlah;
+    }
+
+    // Tampilkan hasil
+    document.getElementById('hasil').textContent = "Estimasi: Rp" + total.toLocaleString('id-ID');
+
+    // Perbarui link WhatsApp
+    const pesanWA = `Halo BERESIN, saya ingin order *${jenis}* sebanyak *${jumlah}* (${waktu}) dengan estimasi *Rp${total.toLocaleString('id-ID')}*`;
+    const encodedPesan = encodeURIComponent(pesanWA);
+    document.getElementById('whatsappLink').href = `https://wa.me/6282121171931?text=${encodedPesan}`;
+  }
+
+  // Event listener
+  document.getElementById('jenis').addEventListener('change', hitungHarga);
+  document.getElementById('jumlah').addEventListener('input', hitungHarga);
+  document.querySelectorAll('input[name="waktu"]').forEach(el => el.addEventListener('change', hitungHarga));
+
+  // Jalankan pertama kali
+  hitungHarga();
+function kirimKeWhatsApp() {
+  const jenis = document.getElementById('jenis').value;
+  const jumlah = parseInt(document.getElementById('jumlah').value) || 0;
+  const waktu = document.querySelector('input[name="waktu"]:checked').value;
+
+  let total = hargaDasar[jenis] * jumlah;
+  if (waktu === 'kilat') {
+    total += hargaKilat[jenis] * jumlah;
+  }
+
+  const pesanWA = `Halo BERESIN, saya ingin order *${jenis}* sebanyak *${jumlah}* (${waktu}) dengan estimasi *Rp${total.toLocaleString('id-ID')}*`;
+  const encodedPesan = encodeURIComponent(pesanWA);
+  window.open(`https://wa.me/6282121171931?text=${encodedPesan}`, '_blank');
+}
+
+</script>
+  <footer>
+    &copy; 2025 BERESIN Indonesia • ~Seandy Christian~
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
