@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing BERESIN</title>
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f8f9fa;
+        padding: 20px;
+    }
+    .pricing-container {
+        max-width: 1000px;
+        margin: auto;
+        text-align: center;
+    }
+    h1 {
+        margin-bottom: 10px;
+        font-size: 2rem;
+        color: #333;
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .tab {
+        padding: 10px 20px;
+        margin: 5px;
+        background: #e9ecef;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .tab.active {
+        background: #28a745;
+        color: white;
+    }
+    .pricing-list {
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    .pricing-list.active {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        padding: 20px;
+        width: 280px;
+        transition: 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .price {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 15px 0;
+        color: #28a745;
+    }
+    .features {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+    .features li {
+        padding: 5px 0;
+        border-bottom: 1px solid #f1f1f1;
+        font-size: 0.95rem;
+    }
+    .btn {
+        display: inline-block;
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background: #218838;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+<body>
+
+<div class="pricing-container">
+    <h1>Paket Layanan BERESIN</h1>
+    <p>Pilih kategori sesuai kebutuhan Anda</p>
+
+    <div class="tabs">
+        <div class="tab active" onclick="showPricing('umkm')">UMKM</div>
+        <div class="tab" onclick="showPricing('startup')">Startup</div>
+        <div class="tab" onclick="showPricing('personal')">Personal Brand</div>
+        <div class="tab" onclick="showPricing('company')">Perusahaan</div>
+        <div class="tab" onclick="showPricing('custom')">Kebutuhan Pribadi</div>
+    </div>
+
+    <!-- UMKM -->
+    <div id="umkm" class="pricing-list active">
+        <div class="card">
+            <h3>Logo & Branding</h3>
+            <div class="price">Rp 500rb</div>
+            <ul class="features">
+                <li>Desain Logo Profesional</li>
+                <li>File Siap Cetak</li>
+                <li>2x Revisi</li>
+            </ul>
+            <a href="#" class="btn">Pilih Paket</a>
+        </div>
+        <div class="card">
+            <h3>Paket Konten UMKM</h3>
+            <div class="price">Rp 2,5jt</div>
+            <ul class="features">
+                <li>Desain 20 Konten</li>
+                <li>Optimasi Instagram</li>
+                <li>Kalender Konten 1 Bulan</li>
+            </ul>
+            <a href="#" class="btn">Pilih Paket</a>
+        </div>
+    </div>
+
+    <!-- Startup -->
+    <div id="startup" class="pricing-list">
+        <div class="card">
+            <h3>Brand Kit Lengkap</h3>
+            <div class="price">Rp 5jt</div>
+            <ul class="features">
+                <li>Logo & Identitas Visual</li>
+                <li>Template Presentasi</li>
+                <li>Media Kit</li>
+            </ul>
+            <a href="#" class="btn">Pilih Paket</a>
+        </div>
+        <div class="card">
+            <h3>Paket Pitch Deck</h3>
+            <div class="price">Rp 3,5jt</div>
+            <ul class="features">
+                <li>Desain Slide Profesional</li>
+                <li>Visual Infografis</li>
+                <li>Optimasi Investor Ready</li>
+            </ul>
+            <a href="#" class="btn">Pilih Paket</a>
+        </div>
+    </div>
+
+    <!-- Personal Brand -->
+    <div id="personal" class="pricing-list">
+        <div class="card">
+            <h3>Personal Branding</h3>
+            <div class="price">Rp 2jt</div>
+            <ul class="features">
+                <li>Desain Media Sosial</li>
+                <li>Foto Profil & Cover</li>
+                <li>Konten Perkenalan</li>
+            </ul>
+            <a href="#" class="btn">Pilih Paket</a>
+        </div>
+    </div>
+
+    <!-- Perusahaan -->
+    <div id="company" class="pricing-list">
+        <div class="card">
+            <h3>Paket Company Profile</h3>
+            <div class="price">Rp 7,5jt</div>
+            <ul class="features">
+                <li>Desain & Penulisan Profil</li>
+                <li>Foto Produk & Kantor</li>
+                <li>File Cetak & Digital</li>
+            </ul>
+            <a href="pricing4.html" class="btn">Pilih Paket</a>
+        </div>
+    </div>
+
+    <!-- Custom -->
+    <div id="custom" class="pricing-list">
+        <div class="card">
+            <h3>Custom Service</h3>
+            <div class="price">Mulai Rp 300rb</div>
+            <ul class="features">
+                <li>Pilih Layanan Sesuai Kebutuhan</li>
+                <li>Estimasi Waktu Fleksibel</li>
+                <li>Konsultasi Gratis</li>
+            </ul>
+            <a href="#" class="btn">Hubungi Kami</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function showPricing(category) {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.pricing-list').forEach(list => list.classList.remove('active'));
+    document.querySelector(`.tab[onclick="showPricing('${category}')"]`).classList.add('active');
+    document.getElementById(category).classList.add('active');
+}
+</script>
+
+</body>
+</html>
