@@ -1,137 +1,305 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing BERESIN</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Inter', sans-serif;
-        background: #f8fafc;
-        margin: 0;
-        padding: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BERESIN – Apapun tugasnya, kami yang BERESIN</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+  <style>
+    :root {
+      --teal: #004e56;
+      --dark: #1e1e1e;
+      --light: #f5f5f5;
+      --white: #ffffff;
+      --accent: #25D366;
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: linear-gradient(135deg, var(--dark), var(--teal));
+      color: var(--white);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Menu Navigasi */
+    .nav-menu {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .nav-menu a {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d8edec;
+      text-decoration: none;
+    }
+    .nav-menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= PRICING ================= */
     .pricing-section {
-        text-align: center;
-        padding: 50px 20px;
+      text-align: center;
+      padding: 60px 20px;
+      background: #f8fafc;
     }
     .pricing-title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 10px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
     }
     .pricing-subtitle {
-        font-size: 1.1rem;
-        color: #555;
-        margin-bottom: 40px;
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 40px;
     }
     .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-        max-width: 1100px;
-        margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
     }
     .pricing-card {
-        background: white;
-        border-radius: 15px;
-        padding: 25px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-        transition: 0.3s ease-in-out;
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: 0.3s ease-in-out;
     }
     .pricing-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
     .pricing-header {
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: #16a34a;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #16a34a;
     }
     .pricing-price {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 15px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 15px;
     }
     .pricing-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: 0.90rem;
-        color: #555;
-        text-align: left;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: left;
     }
     .pricing-list li {
-        padding: 6px 0;
-        border-bottom: 1px solid #eee;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
     }
     .btn-order {
-        display: inline-block;
-        background: #16a34a;
-        color: white;
-        text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 8px;
-        margin-top: 15px;
-        font-weight: 600;
-        transition: 0.3s;
+      display: inline-block;
+      background: #16a34a;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-weight: 600;
+      transition: 0.3s;
     }
     .btn-order:hover {
-        background: #0d9242;
+      background: #0d9242;
     }
-</style>
+
+    /* ================= FOOTER ================= */
+    .sosmed-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      text-align: right;
+    }
+    .sosmed-item a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    footer {
+      text-align: left;
+      padding: 2rem 1rem;
+      background: #e8e8e8;
+      color: #555;
+    }
+    footer h4 {
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+    footer ul {
+      padding-left: 1rem;
+      list-style: none;
+    }
+    footer ul li {
+      margin-bottom: 0.5rem;
+    }
+    footer ul li a {
+      text-decoration: none;
+      color: #004e56;
+    }
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
+    footer p {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
 
-<section class="pricing-section">
+  <!-- ================= HEADER ================= -->
+  <header>
+    <img src="Logo.png" alt="Logo BERESIN">
+    <h1><span style="letter-spacing: 5px;">BERESIN</span></h1>
+    <p>Apapun tugasnya, kami yang BERESIN.</p>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html">Contact</a>
+      <a href="calculator.html">Calculator</a>
+    </nav>
+  </header>
+
+  <!-- ================= BODY / PRICING ================= -->
+  <section class="pricing-section" data-aos="fade-up">
     <h1 class="pricing-title">💡 BERESIN – Paket & Harga Layanan</h1>
     <p class="pricing-subtitle">Pilih paket sesuai kebutuhan Anda, dari sekali pesan hingga langganan tahunan.</p>
 
     <div class="pricing-grid">
-        <!-- Single Task -->
-        <div class="pricing-card">
-            <h2 class="pricing-header">Single Task</h2>
-            <p class="pricing-price">Mulai Rp150.000</p>
-            <ul class="pricing-list">
-                <li>Desain logo, foto produk</li>
-                <li>Pitch deck & presentasi</li>
-                <li>Konten media sosial</li>
-                <li>Editing dokumen / skripsi</li>
-            </ul>
-            <a href="menulengkap.html" class="btn-order">Lihat Menu</a>
-        </div>
-
-        <!-- Paket Hemat -->
-        <div class="pricing-card">
-            <h2 class="pricing-header">Paket Hemat</h2>
-            <p class="pricing-price">Mulai Rp500.000</p>
-            <ul class="pricing-list">
-                <li>Bundling 3 layanan atau lebih</li>
-                <li>Paket UMKM Go Online</li>
-                <li>Paket Startup Kickoff</li>
-                <li>Paket Personal Branding</li>
-            </ul>
-            <a href="paket.html" class="btn-order">Lihat Menu</a>
-        </div>
-
-        <!-- Subscription Tahunan -->
-        <div class="pricing-card">
-            <h2 class="pricing-header">Langganan Tahunan</h2>
-            <p class="pricing-price">Mulai Rp4.000.000/thn</p>
-            <ul class="pricing-list">
-                <li>Layanan kreatif tiap bulan</li>
-                <li>Desain, foto, dan video rutin</li>
-                <li>Paket UMKM, Startup, Corporate</li>
-                <li>Support event & campaign</li>
-            </ul>
-            <a href="subscription.html" class="btn-order">Lihat Menu</a>
-        </div>
+      <div class="pricing-card">
+        <h2 class="pricing-header">Single Task</h2>
+        <p class="pricing-price">Mulai Rp150.000</p>
+        <ul class="pricing-list">
+          <li>Desain logo, foto produk</li>
+          <li>Pitch deck & presentasi</li>
+          <li>Konten media sosial</li>
+          <li>Editing dokumen / skripsi</li>
+        </ul>
+        <a href="menulengkap.html" class="btn-order">Lihat Menu</a>
+      </div>
+      <div class="pricing-card">
+        <h2 class="pricing-header">Paket Hemat</h2>
+        <p class="pricing-price">Mulai Rp500.000</p>
+        <ul class="pricing-list">
+          <li>Bundling 3 layanan atau lebih</li>
+          <li>Paket UMKM Go Online</li>
+          <li>Paket Startup Kickoff</li>
+          <li>Paket Personal Branding</li>
+        </ul>
+        <a href="paket.html" class="btn-order">Lihat Menu</a>
+      </div>
+      <div class="pricing-card">
+        <h2 class="pricing-header">Langganan Tahunan</h2>
+        <p class="pricing-price">Mulai Rp4.000.000/thn</p>
+        <ul class="pricing-list">
+          <li>Layanan kreatif tiap bulan</li>
+          <li>Desain, foto, dan video rutin</li>
+          <li>Paket UMKM, Startup, Corporate</li>
+          <li>Support event & campaign</li>
+        </ul>
+        <a href="subscription.html" class="btn-order">Lihat Menu</a>
+      </div>
     </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+<!-- Bagian Motto Kami -->
+<section class="motto" style="text-align:center; padding:40px 20px;">
+  <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">🌟 Motto Kami</h3>
+  <p style="font-size:18px; font-style:italic; margin:10px 0;">
+    “Apapun tugasnya, kami yang BERESIN.”
+  </p>
+  
+  <!-- Tombol Sosial Media -->
+  <div style="margin-top:20px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+    <a href="https://instagram.com/beresin.indonesia" target="_blank" style="text-decoration:none;">
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:10px 16px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); font-size:15px; color:#333; font-weight:500;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px;">
+          @beresin.indonesia
+      </div>
+    </a>
+    <a href="https://linktr.ee/beresin.indonesia" target="_blank" style="text-decoration:none;">
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:10px 16px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); font-size:15px; color:#333; font-weight:500;">
+         <img src="https://cdn-icons-png.flaticon.com/512/9068/9068756.png" alt="Linktree" style="height:24px;">
+        linktr.ee/beresin.indonesia
+      </div>
+    </a>
+  </div>
 </section>
 
+
+<!-- Footer -->
+<footer style="background:#111; color:#fff; padding:40px 20px; margin-top:20px;">
+  <div style="display:flex; flex-wrap:wrap; justify-content:space-around; text-align:left;">
+    
+    <div style="margin:10px;">
+      <h2><a href="#" style="color:#fff; text-decoration:none;">Announcement</a></h2>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Info Beresin</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Pengumuman</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Karir</a></p>
+    </div>
+
+    <div style="margin:10px;">
+      <h2><a href="#" style="color:#fff; text-decoration:none;">Network</a></h2>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Sub-Layanan Artikel</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Sub-Layanan Desain</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Sub-Layanan Excel</a></p>
+    </div>
+
+    <div style="margin:10px;">
+      <h2><a href="#" style="color:#fff; text-decoration:none;">Tools</a></h2>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Kalkulator Harga</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Form Pemesanan</a></p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:20px; font-size:14px; color:#aaa;">
+    © 2025 BERESIN Indonesia. All rights reserved.
+  </div>
+</footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
