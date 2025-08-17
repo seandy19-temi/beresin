@@ -120,7 +120,7 @@
                 <li>File Siap Cetak</li>
                 <li>2x Revisi</li>
             </ul>
-            <a href="#" class="btn">Pilih Paket</a>
+            <a href="#" class="btn" data-paket="Logo & Branding | Rp500rb">Pilih Paket</a>
         </div>
         <div class="card">
             <h3>Paket Konten UMKM</h3>
@@ -130,7 +130,7 @@
                 <li>Optimasi Instagram</li>
                 <li>Kalender Konten 1 Bulan</li>
             </ul>
-            <a href="#" class="btn">Pilih Paket</a>
+            <a href="#" class="btn" data-paket="Paket Konten UMKM | Rp2,5jt">Pilih Paket</a>
         </div>
     </div>
 
@@ -144,7 +144,7 @@
                 <li>Template Presentasi</li>
                 <li>Media Kit</li>
             </ul>
-            <a href="#" class="btn">Pilih Paket</a>
+            <a href="#" class="btn" data-paket="Brand Kit Lengkap | Rp5jt">Pilih Paket</a>
         </div>
         <div class="card">
             <h3>Paket Pitch Deck</h3>
@@ -154,7 +154,7 @@
                 <li>Visual Infografis</li>
                 <li>Optimasi Investor Ready</li>
             </ul>
-            <a href="#" class="btn">Pilih Paket</a>
+            <a href="#" class="btn" data-paket="Paket Pitch Deck | Rp3,5jt">Pilih Paket</a>
         </div>
     </div>
 
@@ -168,7 +168,7 @@
                 <li>Foto Profil & Cover</li>
                 <li>Konten Perkenalan</li>
             </ul>
-            <a href="#" class="btn">Pilih Paket</a>
+            <a href="#" class="btn" data-paket="Personal Branding | Rp2jt">Pilih Paket</a>
         </div>
     </div>
 
@@ -182,7 +182,7 @@
                 <li>Foto Produk & Kantor</li>
                 <li>File Cetak & Digital</li>
             </ul>
-            <a href="pricing4.html" class="btn">Pilih Paket</a>
+            <a href="#" class="btn" data-paket="Paket Company Profile | Rp7,5jt">Pilih Paket</a>
         </div>
     </div>
 
@@ -196,7 +196,7 @@
                 <li>Estimasi Waktu Fleksibel</li>
                 <li>Konsultasi Gratis</li>
             </ul>
-            <a href="#" class="btn">Hubungi Kami</a>
+            <a href="#" class="btn" data-paket="Custom Service | Mulai Rp300rb">Hubungi Kami</a>
         </div>
     </div>
 </div>
@@ -208,6 +208,18 @@ function showPricing(category) {
     document.querySelector(`.tab[onclick="showPricing('${category}')"]`).classList.add('active');
     document.getElementById(category).classList.add('active');
 }
+
+// === Script WhatsApp ===
+const phone = "6282121171931"; // nomor Anda
+document.querySelectorAll('.btn[data-paket]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const paket = encodeURIComponent(this.getAttribute('data-paket'));
+        const text = `Halo saya ingin memesan ${paket}`;
+        const url = `https://wa.me/${phone}?text=${text}`;
+        window.open(url, "_blank");
+    });
+});
 </script>
 
 </body>
