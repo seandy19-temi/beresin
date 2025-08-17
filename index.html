@@ -362,178 +362,65 @@ Mulai dari pembuatan konten, desain, strategi branding, pengelolaan media sosial
       <p>Ingin pesan layanan atau konsultasi gratis?</p>
       <a class="cta" href="https://wa.me/6282121171931" target="_blank">💬 Hubungi via WhatsApp</a><br>
       <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfoiZ5Y4eGKCuVqWPjZo77QhH1U0BIzXDQPuuZgkiGVuqAJVw/viewform?usp=header" target="_blank">📝 Isi Form Order</a>
-<!-- SOSMED -->
-  <div class="sosmed-wrapper">
-  <div class="sosmed-item">
-    <a href="https://www.instagram.com/beresin.indonesia" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px; vertical-align:middle;">
-      @beresin.indonesia
-    </a>
-  </div>
-  <div class="sosmed-item">
-    <a href="https://linktr.ee/beresin.indonesia" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/9068/9068756.png" alt="Beacons" style="height:24px; vertical-align:middle;">
-      linktr.ee/beresin.indonesia
-    </a>
-  </div>
-    </div>
-     </div>
-
-  <!-- Kanan: Gambar Slide untuk desktop -->
-<div class="slide-container desktop-only" style="flex: 1; max-width: 400px; position: relative; margin-left: 10px;">
-  <img id="slide-gambar" src="1.png" style="width: 110%; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: opacity 0.5s ease;">
+<!-- ================= FOOTER ================= -->
+<!-- Bagian Motto Kami -->
+<section class="motto" style="text-align:center; padding:40px 20px;">
+  <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">🌟 Motto Kami</h3>
+  <p style="font-size:18px; font-style:italic; margin:10px 0;">
+    “Apapun tugasnya, kami yang BERESIN.”
+  </p>
   
-   <div id="slide-dots" style="text-align:center; margin-top:10px;"></div>
-</div>
-
-</div>
-<hr style="margin: 2rem 0;">
-
-    <div class="footer-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem;">
-      <div>
-        <h4>Announcement</h4>
-        <ul>
-          <li><a href="#">Info Beresin</a></li>
-          <li><a href="#">Pengumuman</a></li>
-          <li><a href="#">Karir</a></li>
-        </ul>
+  <!-- Tombol Sosial Media -->
+  <div style="margin-top:20px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+    <a href="https://instagram.com/beresin.indonesia" target="_blank" style="text-decoration:none;">
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:10px 16px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); font-size:15px; color:#333; font-weight:500;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px;">
+          @beresin.indonesia
       </div>
-      <div>
-        <h4>Network</h4>
-        <ul>
-          <li><a href="#">Sub-Layanan Artikel</a></li>
-          <li><a href="#">Sub-Layanan Desain</a></li>
-          <li><a href="#">Sub-Layanan Excel</a></li>
-        </ul>
+    </a>
+    <a href="https://linktr.ee/beresin.indonesia" target="_blank" style="text-decoration:none;">
+      <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:10px 16px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); font-size:15px; color:#333; font-weight:500;">
+         <img src="https://cdn-icons-png.flaticon.com/512/9068/9068756.png" alt="Linktree" style="height:24px;">
+        linktr.ee/beresin.indonesia
       </div>
-      <div>
-        <h4>Tools</h4>
-        <ul>
-          <li><a href="calculator.html">Kalkulator Harga</a></li>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfoiZ5Y4eGKCuVqWPjZo77QhH1U0BIzXDQPuuZgkiGVuqAJVw/viewform?usp=header">Form Pemesanan</a></li>
-        </ul>
-      </div>
-    </div>
+    </a>
+  </div>
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const gambarList = ["1.png", "2.png", "3.png"];
-  let index = 0;
 
-  const slideMobile = document.getElementById("slide-gambar-mobile");
-  const slideDesktop = document.getElementById("slide-gambar");
-  const slideDots = document.getElementById("slide-dots");
+<!-- Footer -->
+<footer style="background:#111; color:#fff; padding:40px 20px; margin-top:20px;">
+  <div style="display:flex; flex-wrap:wrap; justify-content:space-around; text-align:left;">
+    
+    <div style="margin:10px;">
+      <h2><a href="#" style="color:#fff; text-decoration:none;">Announcement</a></h2>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Info Beresin</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Pengumuman</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Karir</a></p>
+    </div>
 
-  // Buat indikator
-  gambarList.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.className = "slide-dot";
-    dot.addEventListener("click", () => showSlide(i));
-    slideDots.appendChild(dot);
-  });
+    <div style="margin:10px;">
+      <h2><a href="#" style="color:#fff; text-decoration:none;">Network</a></h2>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Sub-Layanan Artikel</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Sub-Layanan Desain</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Sub-Layanan Excel</a></p>
+    </div>
 
-  const dots = document.querySelectorAll(".slide-dot");
+    <div style="margin:10px;">
+      <h2><a href="#" style="color:#fff; text-decoration:none;">Tools</a></h2>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Kalkulator Harga</a></p>
+      <p><a href="#" style="color:#fff; text-decoration:none;">Form Pemesanan</a></p>
+    </div>
 
-  function setImageWithTransition(img, src) {
-    img.classList.remove("slide-in-left", "slide-out-left");
-    img.classList.add("slide-out-left");
-    setTimeout(() => {
-      img.src = src;
-      img.classList.remove("slide-out-left");
-      img.classList.add("slide-in-left");
-    }, 300);
-  }
+  </div>
 
-  function showSlide(i) {
-    index = (i + gambarList.length) % gambarList.length;
-    const src = gambarList[index];
-    if (slideDesktop) setImageWithTransition(slideDesktop, src);
-    if (slideMobile) setImageWithTransition(slideMobile, src);
-    dots.forEach((dot, iDot) => {
-      dot.classList.toggle("active", iDot === index);
-    });
-  }
+  <div style="text-align:center; margin-top:20px; font-size:14px; color:#aaa;">
+    © 2025 BERESIN Indonesia. All rights reserved.
+  </div>
+</footer>
 
-  setInterval(() => showSlide(index + 1), 5000);
-
-  // Swipe handler
-  let startX = 0;
-  let isDragging = false;
-
-  function handleStart(e) {
-    isDragging = true;
-    startX = e.touches ? e.touches[0].clientX : e.clientX;
-  }
-
-  function handleEnd(e) {
-    if (!isDragging) return;
-    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-    const deltaX = endX - startX;
-    if (Math.abs(deltaX) > 50) {
-      showSlide(index + (deltaX < 0 ? 1 : -1));
-    }
-    isDragging = false;
-  }
-
-  const swipeTargets = [slideDesktop, slideMobile];
-  swipeTargets.forEach(target => {
-    if (!target) return;
-    target.addEventListener("touchstart", handleStart);
-    target.addEventListener("touchend", handleEnd);
-    target.addEventListener("mousedown", handleStart);
-    target.addEventListener("mouseup", handleEnd);
-  });
-
-  showSlide(0);
-});
-</script>
-
-
-
-  <footer>
-    &copy; 2025 COPYRIGHT All Right Reserved • BERESIN Indonesia
-  </footer>
-<div id="chatbot-popup" style="display:none; position:fixed; bottom:20px; right:20px; width:360px; height:500px; border:1px solid #ccc; background:#fff; z-index:9999;">
-  <iframe src="chatbot.html" width="100%" height="100%" style="border:none;"></iframe>
-  <button onclick="document.getElementById('chatbot-popup').style.display='none'" style="position:absolute; top:5px; right:5px;">❌</button>
-</div>
-<script>
-  // Animasi popup chatbot
-  function openChat() {
-    document.getElementById("chatModal").classList.add("show");
-  }
-  function closeChat() {
-    document.getElementById("chatModal").classList.remove("show");
-  }
-
-  // Animasi fade-in saat scroll
-  const faders = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  });
-  faders.forEach(el => observer.observe(el));
-</script>
-<!-- GLightbox JS -->
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-  const lightbox = GLightbox({
-    selector: '.glightbox'
-  });
-</script>
-
-<script>
-  function openChat() {
-    var chatbotPopup = document.getElementById("chatbot-popup");
-    if (chatbotPopup) {
-      chatbotPopup.style.display = "block";
-    } else {
-      alert("Elemen chatbot tidak ditemukan.");
-    }
-  }
-</script>
-
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
