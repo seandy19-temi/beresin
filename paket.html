@@ -94,6 +94,18 @@
         from {opacity: 0; transform: translateY(20px);}
         to {opacity: 1; transform: translateY(0);}
     }
+ /* === Label Promo Musiman === */
+    .season-label {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: #FF1744;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
 </style>
 </head>
 <body>
@@ -108,83 +120,120 @@
         <div class="tab" onclick="showPricing('personal')">Personal Brand</div>
         <div class="tab" onclick="showPricing('company')">Perusahaan</div>
         <div class="tab" onclick="showPricing('custom')">Kebutuhan Pribadi</div>
+        <div class="tab" onclick="showPricing('entry')">Entry Level</div>
     </div>
 
-    <!-- UMKM -->
-    <div id="umkm" class="pricing-list active">
-        <div class="card">
-            <h3>Logo & Branding</h3>
-            <div class="price">Rp 500rb</div>
-            <ul class="features">
-                <li>Desain Logo Profesional</li>
-                <li>File Siap Cetak</li>
-                <li>2x Revisi</li>
-            </ul>
-            <a href="#" class="btn" data-paket="Logo & Branding | Rp500rb">Pilih Paket</a>
-        </div>
-        <div class="card">
-            <h3>Paket Konten UMKM</h3>
-            <div class="price">Rp 2,5jt</div>
-            <ul class="features">
-                <li>Desain 20 Konten</li>
-                <li>Optimasi Instagram</li>
-                <li>Kalender Konten 1 Bulan</li>
-            </ul>
-            <a href="#" class="btn" data-paket="Paket Konten UMKM | Rp2,5jt">Pilih Paket</a>
-        </div>
-    </div>
+   <!-- UMKM -->
+<div id="umkm" class="pricing-list active">
+
+  <div class="card" style="position: relative;">
+    <!-- Label kiri atas (diskon musiman) -->
+    <span style="position:absolute; top:-10px; left:-10px; background:#FF9800; color:white; font-size:0.75rem; font-weight:bold; padding:5px 8px; border-radius:6px;">
+      🎉 Diskon 10% Agustus
+    </span>
+    <!-- Label kanan atas -->
+    <span style="position:absolute; top:-10px; right:-10px; background:#E53935; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">
+      🔥 Best Seller
+    </span>
+    <h3>Logo & Branding – Bikin Bisnis Terlihat Profesional</h3>
+    <div class="price"><s>Rp 620rb</s> Rp 496rb</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Logo rapi = bisnis terlihat dipercaya</p>
+    <ul class="features">
+      <li>Desain Logo Profesional</li>
+      <li>File Siap Cetak</li>
+      <li>2x Revisi</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Logo & Branding | Rp500rb">Pilih Paket</a>
+  </div>
+
+  <div class="card" style="position: relative;">
+    <!-- Label kiri atas (diskon musiman) -->
+    <span style="position:absolute; top:-10px; left:-10px; background:#FF9800; color:white; font-size:0.75rem; font-weight:bold; padding:5px 8px; border-radius:6px;">
+      🎉 Diskon 10% Agustus
+    </span>
+    <!-- Label kanan atas (status populer) -->
+    <span style="position:absolute; top:-10px; right:-10px; background:#1976D2; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">
+      ⭐ Paling Populer
+    </span>
+    <h3>Konten UMKM Naik Kelas – Feed Rapi & Menjual</h3>
+    <div class="price"><s>Rp 2.750.000</s></div>
+    <div class="price">Rp 2.475.000</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Bikin IG jadi mesin promosi harian</p>
+    <ul class="features">
+      <li>Desain 20 Konten</li>
+      <li>Optimasi Instagram</li>
+      <li>Kalender Konten 1 Bulan</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Konten UMKM Naik Kelas | Rp2,5jt">Pilih Paket</a>
+  </div>
+
+</div>
+
+
 
     <!-- Startup -->
     <div id="startup" class="pricing-list">
-        <div class="card">
-            <h3>Brand Kit Lengkap</h3>
-            <div class="price">Rp 5jt</div>
-            <ul class="features">
-                <li>Logo & Identitas Visual</li>
-                <li>Template Presentasi</li>
-                <li>Media Kit</li>
-            </ul>
-            <a href="#" class="btn" data-paket="Brand Kit Lengkap | Rp5jt">Pilih Paket</a>
-        </div>
-        <div class="card">
-            <h3>Paket Pitch Deck</h3>
-            <div class="price">Rp 3,5jt</div>
-            <ul class="features">
-                <li>Desain Slide Profesional</li>
-                <li>Visual Infografis</li>
-                <li>Optimasi Investor Ready</li>
-            </ul>
-            <a href="#" class="btn" data-paket="Paket Pitch Deck | Rp3,5jt">Pilih Paket</a>
-        </div>
-    </div>
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#43A047; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">🔥 Best Value</span>
+    <h3>Brand Kit Lengkap – Identitas Startup Lebih Solid</h3>
+    <div class="price">Rp 5jt</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Konsisten di semua touchpoint</p>
+    <ul class="features">
+      <li>Logo & Identitas Visual</li>
+      <li>Template Presentasi</li>
+      <li>Media Kit</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Brand Kit Lengkap | Rp5jt">Pilih Paket</a>
+  </div>
+
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#FF8F00; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">⭐ Paling Dicari</span>
+    <h3>Pitch Deck Investor Ready – Presentasi Powerful</h3>
+    <div class="price">Rp 3,5jt</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Data jelas, cerita nyambung, visual meyakinkan</p>
+    <ul class="features">
+      <li>Desain Slide Profesional</li>
+      <li>Visual Infografis</li>
+      <li>Optimasi Investor Ready</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Pitch Deck Investor Ready | Rp3,5jt">Pilih Paket</a>
+  </div>
+</div>
+
 
     <!-- Personal Brand -->
     <div id="personal" class="pricing-list">
-        <div class="card">
-            <h3>Personal Branding</h3>
-            <div class="price">Rp 2jt</div>
-            <ul class="features">
-                <li>Desain Media Sosial</li>
-                <li>Foto Profil & Cover</li>
-                <li>Konten Perkenalan</li>
-            </ul>
-            <a href="#" class="btn" data-paket="Personal Branding | Rp2jt">Pilih Paket</a>
-        </div>
-    </div>
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#9C27B0; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">✨ Favorit Profesional Muda</span>
+    <h3>Personal Branding – Profil Lebih Berkelas</h3>
+    <div class="price">Rp 2jt</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Biar audiens kenal & percaya sama kamu</p>
+    <ul class="features">
+      <li>Desain Media Sosial</li>
+      <li>Foto Profil & Cover</li>
+      <li>Konten Perkenalan</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Personal Branding | Rp2jt">Pilih Paket</a>
+  </div>
+</div>
+
 
     <!-- Perusahaan -->
     <div id="company" class="pricing-list">
-        <div class="card">
-            <h3>Paket Company Profile</h3>
-            <div class="price">Rp 7,5jt</div>
-            <ul class="features">
-                <li>Desain & Penulisan Profil</li>
-                <li>Foto Produk & Kantor</li>
-                <li>File Cetak & Digital</li>
-            </ul>
-            <a href="#" class="btn" data-paket="Paket Company Profile | Rp7,5jt">Pilih Paket</a>
-        </div>
-    </div>
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#D32F2F; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">🔥 Wajib untuk Tender</span>
+    <h3>Company Profile Pro – Tingkatkan Kepercayaan Klien</h3>
+    <div class="price">Rp 7,5jt</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Profil jelas, desain rapi, ready untuk presentasi</p>
+    <ul class="features">
+      <li>Desain & Penulisan Profil</li>
+      <li>Foto Produk & Kantor</li>
+      <li>File Cetak & Digital</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Company Profile Pro | Rp7,5jt">Pilih Paket</a>
+  </div>
+</div>
+
 
     <!-- Custom -->
     <div id="custom" class="pricing-list">
@@ -199,7 +248,63 @@
             <a href="#" class="btn" data-paket="Custom Service | Mulai Rp300rb">Hubungi Kami</a>
         </div>
     </div>
+
+    <!-- Entry Level -->
+    <div id="entry" class="pricing-list">
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#0288D1; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">💡 Starter Paling Murah</span>
+    <h3>Mini Logo Pack – Mulai Branding dengan Hemat</h3>
+    <div class="price">Rp 250rb</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Cocok untuk usaha rumahan & side hustle</p>
+    <ul class="features">
+      <li>1 Konsep Logo Sederhana</li>
+      <li>File PNG/JPG</li>
+      <li>1x Revisi</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Mini Logo Pack | Rp250rb">Pilih Paket</a>
+  </div>
+
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#455A64; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">⭐ Entry Level Favorit</span>
+    <h3>Basic Company Profile PDF – Ringkas & Siap Kirim</h3>
+    <div class="price">Rp 500rb</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Profil singkat yang tetap terlihat profesional</p>
+    <ul class="features">
+      <li>4–6 Halaman PDF</li>
+      <li>Copywriting Ringan</li>
+      <li>1x Revisi</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Basic Company Profile PDF | Rp500rb">Pilih Paket</a>
+  </div>
+
+  <div class="card" style="position: relative;">
+     <span class="season-label">🎉 Promo Ramadhan</span>
+     <span style="position:absolute; top:-10px; right:-10px; background:#F57C00; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">🔥 Best Value Online</span>
+    <h3>Starter Website Lite – Online Cepat & Hemat</h3>
+    <div class="price">Rp 1jt</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Langsung punya website untuk mulai promosi</p>
+    <ul class="features">
+      <li>3–4 Menu Dasar</li>
+      <li>Gratis Domain .web.id</li>
+      <li>Hosting 500MB</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Starter Website Lite | Rp1jt">Pilih Paket</a>
+  </div>
+
+  <div class="card" style="position: relative;">
+    <span style="position:absolute; top:-10px; right:-10px; background:#1976D2; color:white; font-size:0.8rem; font-weight:bold; padding:5px 10px; border-radius:8px;">⭐ Paling Populer IG</span>
+    <h3>Konten Hemat IG – Feed Rapi Tanpa Ribet</h3>
+    <div class="price">Rp 1jt</div>
+    <p style="font-size:0.9rem; color:#444; font-style:italic; margin-top:-5px;">Konten konsisten, engagement lebih mudah naik</p>
+    <ul class="features">
+      <li>10 Desain Konten</li>
+      <li>Caption & Hashtag Dasar</li>
+      <li>Optimasi Feed IG</li>
+    </ul>
+    <a href="#" class="btn" data-paket="Konten Hemat IG | Rp1jt">Pilih Paket</a>
+  </div>
 </div>
+
 
 <script>
 function showPricing(category) {
